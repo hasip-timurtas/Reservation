@@ -6,9 +6,14 @@ export default class Home extends React.Component {
 
     }
     render() {
-        return (
+        return (<div>
           <h1> Home</h1>
-        )
+
+          <div className="row">
+            Buraya Liste gelecek
+          </div>
+
+        </div>)
 
     }
 }
