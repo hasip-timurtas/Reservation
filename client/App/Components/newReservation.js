@@ -25,7 +25,7 @@ export  default class NewReservation extends Component {
                     <div className="=form-group">
                       <div className="col-md-6">
                          <select className="form-control" ref="oda">
-                           <option selected>301</option>
+                           <option>301</option>
                            <option>302</option>
                            <option>303</option>
                            <option>304</option>

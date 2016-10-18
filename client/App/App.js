@@ -1,9 +1,13 @@
 import React from 'react';
 
-import Home from './Components/home';
+import ShowRooms from './Components/showRooms';
+import NewReservation from './Components/newReservation';
 
-Notes = new Meteor.Collection("notes");
-Meteor.subscribe("getNotes");
+Reservations = new Meteor.Collection("reservations");
+Rooms = new Meteor.Collection("rooms");
+Meteor.subscribe("getReservations");
+Meteor.subscribe("getRooms");
+
 
 export default class App extends React.Component {
     constructor() {
@@ -13,7 +17,8 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="row">
-              <Home />
+              <ShowRooms />
+              <NewReservation />
             </div>
         )
     }

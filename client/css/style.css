@@ -7,3 +7,19 @@ input[type="date"]:focus:before,
 input[type="date"]:valid:before {
   content: "";
 }
+
+.odalar div {
+  background-color: green;
+  width: 150px;
+  height: 150px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.odalar div h2{
+  background-color: black;
+ color: white;
+}
