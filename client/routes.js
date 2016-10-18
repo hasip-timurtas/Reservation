@@ -5,6 +5,10 @@ import {MainLayout} from './layouts/MainLayout';
 import App from './App/App';
 import NewReservation from './App/Components/newReservation';
 
+Rooms = new Meteor.Collection("rooms");
+Reservations = new Meteor.Collection("reservations");
+
+
 FlowRouter.route('/', {
     action(){
         mount(MainLayout, {
@@ -20,3 +24,9 @@ FlowRouter.route('/new-reservation', {
         })
     }
 });
+
+
+FlowRouter.subscriptions = function() {
+  this.register('myCourses', Meteor.subscribe('getRooms'));
+  this.register('myCourses', Meteor.subscribe('getReservations'));
+};

@@ -17,10 +17,6 @@ Meteor.startup(() => {
 
 Meteor.methods({
     newReservation: function (reservation) {
-        if (!Meteor.userId()) {
-            throw new Meteor.error("unauthorized", "unauthorized");
-        };
-
         var reservationId = Reservations.insert(reservation);
         return reservationId;
     },
@@ -33,14 +29,5 @@ Meteor.methods({
         Reservations.update(reservation.noteId, {
             $set: {title: reservation.title, content: reservation.content}
         });
-    },
-
-    newRoom: function (roomName) {
-      console.log("newRoom Method");
-      roomId = Rooms.insert({Name : roomName});
-
-      return roomId;
     }
-
-
 });

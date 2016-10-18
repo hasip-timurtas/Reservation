@@ -1,7 +1,7 @@
-Meteor.publish("getNotes",function() {
-    return Reservations.find({owner_id: this.userId});
+Meteor.publish("getReservations",function() {
+    return Reservations.find();
 });
 
 Meteor.publish("getRooms",function() {
-    return Rooms.find({});
+    return Rooms.find();
 });

@@ -2,21 +2,24 @@ import React from 'react';
 
 import SingleRoom from './singleRoom';
 
+
+
+
 export default class ShowRooms extends React.Component {
     constructor(props) {
         super(props);
     }
 
     loadData(){
-        console.log(Rooms.find({}).fetch());
+      return  Rooms.find();
     }
 
 
     render() {
 
-      /*  var rooms = this.loadData().map(room => {
-          console.log(room); //  return <SingleRoom roomum={room} key={room._id} />;
-        });*/
+        var rooms = this.loadData().map(room => {
+           return <SingleRoom roomum={room} key={room._id} />;
+        });
         this.loadData();
 
         return (<div>
@@ -24,6 +27,7 @@ export default class ShowRooms extends React.Component {
 
           <div className="row odalar" >
 
+          {rooms}
 
 
             <div> <h2>301</h2></div>

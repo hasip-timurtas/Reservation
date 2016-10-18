@@ -7,7 +7,7 @@ export default class SingleRoom extends React.Component {
 
     render() {
         return (
-            <div  onClick={this.showNote.bind(this)}> <h2>{this.props.roomum.name}</h2></div>
+            <div  onClick={this.showNote.bind(this)}> <h2>{this.props.roomum.Name}</h2></div>
         )
     }
 }
