@@ -2,10 +2,11 @@ import React from 'react';
 
 import ShowRooms from './Components/showRooms';
 import NewReservation from './Components/newReservation';
+import { createContainer } from 'meteor/react-meteor-data';
+import { Rooms, Reservations } from '../../imports/api/rooms.js';
 
 
-
-export default class App extends React.Component {
+export class App extends React.Component {
     constructor() {
         super();
     }
@@ -14,9 +15,23 @@ export default class App extends React.Component {
         return (
             <div className="row">
               <ShowRooms />
+              <br />
               <NewReservation />
             </div>
         )
     }
 
 }
+
+
+export default createContainer(() => {
+
+  Meteor.subscribe('getRooms');
+  Meteor.subscribe('getReservations');
+
+  return {
+    rooms: Rooms.find({}).fetch(),
+    reservations: Reservations.find({}).fetch(),
+    //currentUser: Meteor.user(),
+  };
+}, App);
