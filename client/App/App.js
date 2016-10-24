@@ -16,6 +16,7 @@ export class App extends React.Component {
             <div className="row">
               <ShowRooms />
               <br />
+			  <p> Hasip </p>
               <NewReservation />
             </div>
         )
