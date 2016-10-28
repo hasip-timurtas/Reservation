@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class SingleRoom extends React.Component {
     sendRoomId() {
-      this.props.showCust(this.props.room);
+      this.props.showCust(this.props.room._id);
     }
 
     render() {

@@ -1,9 +1,18 @@
 import  React, {Component} from 'react';
-
 export  default class NewReservation extends Component {
+  constructor(props) {
+      super(props);
+
+      this.state = {
+        giris : '28.10.2016',
+        cikis : '29.10.2017'
+      };
+  }
+
     addNote(event) {
         event.preventDefault();
         var reservation ={
+           isim : this.refs.isim.value,
            oda : this.refs.oda.value,
            giris : this.refs.giris.value,
            cikis : this.refs.cikis.value,
@@ -41,7 +50,17 @@ export  default class NewReservation extends Component {
                 <div className="row">
                     <div className="=form-group">
                         <div className="col-md-6">
-                            <input type="date" className="form-control" placeholder="GİRİŞ TARİHİ"  ref="giris"/>
+                            <input type="text" className="form-control" ref="isim" placeholder="İSİM"  />
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+
+                <div className="row">
+                    <div className="=form-group">
+                        <div className="col-md-6">
+                            <input type="date" className="form-control" placeholder="GİRİŞ TARİHİ" ref="giris"/>
                         </div>
                     </div>
                 </div>

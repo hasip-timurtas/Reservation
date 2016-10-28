@@ -21,5 +21,21 @@ input[type="date"]:valid:before {
 
 .odalar div h2{
   background-color: black;
- color: white;
+  color: white;
+}
+
+.musteriler{
+  padding-left: 10px;
+
+
+}
+
+.musteriler .musteri {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #e3e3e3;
+ border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+width:300px;
 }

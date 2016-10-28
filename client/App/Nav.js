@@ -18,10 +18,11 @@ export default class Nav extends Component{
                     </div>
                     <div id="navbar" className="navbar-collapse collapse">
                         <ul className="nav navbar-nav">
-                            <li><a href="/new-reservation">New Reservation</a></li>
+                          <li><a href="/new-reservation">Yeni Rezervasyon</a></li>
+                          <li><a href="/new-reservation">Gelir Giderler</a></li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
-                            <li><a href="#"> <AccountsUI /> </a></li>
+                          <li><a href="#"> <AccountsUI /> </a></li>
                         </ul>
                     </div>
                 </div>

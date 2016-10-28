@@ -15,8 +15,6 @@ export class App extends React.Component {
         return (
             <div className="row">
               <ShowRooms />
-              <br />
-              <NewReservation />
             </div>
         )
     }
