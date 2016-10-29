@@ -1,12 +1,11 @@
 import React from 'react';
-import {getCurrentDate} from './currentDate';
 
 export default class RezDate extends React.Component {
   constructor(props) {
       super(props);
 
       this.state = {
-        startDate : getCurrentDate()
+        startDate : this.props.date
       }
   }
 

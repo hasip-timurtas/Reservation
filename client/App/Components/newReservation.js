@@ -62,7 +62,7 @@ export  default class NewReservation extends Component {
                            <option>303</option>
                            <option>304</option>
                            <option>305</option>
-                           <option>306</option>
+                           <option >306</option>
                            <option>307</option>
                          </select>
                         </div>
