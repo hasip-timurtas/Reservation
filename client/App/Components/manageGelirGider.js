@@ -50,7 +50,7 @@ export class ManageGelirGider extends React.Component {
           <div className="container">
             <div className="row">
               <div className="=form-group rezDate">
-                <RezDate onDateChange={this.onRezDateChange.bind(this)}/>
+                <RezDate onDateChange={this.onRezDateChange.bind(this)} date={this.state.ggDate}/>
               </div>
             </div>
             <div className="row">

@@ -82,7 +82,7 @@ export  default class NewReservation extends Component {
                 <div className="row">
                     <div className="=form-group">
                         <div className="col-md-6">
-                            <RezDate onDateChange={this.onRezDateChangeGiris.bind(this)}/>
+                            <RezDate onDateChange={this.onRezDateChangeGiris.bind(this)} date={this.state.giris}/>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ export  default class NewReservation extends Component {
                 <div className="row">
                     <div className="=form-group">
                         <div className="col-md-6">
-                            <RezDate onDateChange={this.onRezDateChangeCikis.bind(this)}/>
+                            <RezDate onDateChange={this.onRezDateChangeCikis.bind(this)} date={this.state.cikis}/>
                         </div>
                     </div>
                 </div>
