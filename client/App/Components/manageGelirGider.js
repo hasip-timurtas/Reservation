@@ -5,6 +5,8 @@ import NewGelirGider from './newGelirGider';
 import {getCurrentDate} from './currentDate';
 import RezDate from './rezDate';
 import ShowGelirGider from './showGelirGider';
+import CalculateGelirGider from './calculateGelirGider';
+
 import { createContainer } from 'meteor/react-meteor-data';
 
 export class ManageGelirGider extends React.Component {
@@ -51,9 +53,15 @@ export class ManageGelirGider extends React.Component {
                 <RezDate onDateChange={this.onRezDateChange.bind(this)}/>
               </div>
             </div>
-            
-            <ShowGelirGider ggDate={this.state.ggDate} />
-            <NewGelirGider />
+            <div className="row">
+              <div className="col-md-9">
+                <ShowGelirGider ggDate={this.state.ggDate} />
+                <NewGelirGider />
+              </div>
+              <div className="col-md-3">
+                <CalculateGelirGider ggDate={this.state.ggDate} />
+              </div>
+            </div>
           </div>
 
         )
