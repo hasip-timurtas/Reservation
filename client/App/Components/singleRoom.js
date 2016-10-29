@@ -7,7 +7,7 @@ export default class SingleRoom extends React.Component {
 
     render() {
         return (
-            <div  onClick={this.sendRoomId.bind(this)}> <h2>{this.props.room.Name}</h2></div>
+            <div className={this.props.renk}  onClick={this.sendRoomId.bind(this)}> <h2>{this.props.room.Name}</h2></div>
         )
     }
 }

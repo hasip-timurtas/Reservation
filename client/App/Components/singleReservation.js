@@ -2,9 +2,7 @@ import React from 'react';
 
 export default class SingleReservation extends React.Component {
     sendReservationId() {
-      //this.props.showCust(this.props.reservation);
-
-      //console.log(this.props.reservation);
+      console.log("müşteri bilgisi");
     }
 
     render() {
@@ -12,15 +10,31 @@ export default class SingleReservation extends React.Component {
             <div  onClick={this.sendReservationId.bind(this)}>
 
               <div className="musteri">
-                <p>
-                  <i className="fa fa-male fa-2x" aria-hidden="true"></i> {this.props.reservation.oda}
-                  <br />
-                  <i className="fa fa-sign-in fa-2x" aria-hidden="true"></i>  {this.props.reservation.giris}
-                  <br />
-                  <i className="fa fa-sign-out fa-2x" aria-hidden="true"></i> {this.props.reservation.cikis}
-                  <br />
-                  <i className="fa fa-money fa-2x" aria-hidden="true"></i> {this.props.reservation.ucret} TL
-                </p>
+                <table>
+                  <tbody>
+                    <tr>
+                      <th> <i className="fa fa-male fa-2x" aria-hidden="true"></i> </th>
+                      <td> {this.props.reservation.isim} </td>
+                    </tr>
+                    <tr>
+                      <th> <i className="fa fa-sign-in fa-2x" aria-hidden="true"></i>  </th>
+                      <td> {this.props.reservation.giris} </td>
+                    </tr>
+                    <tr>
+                      <th> <i className="fa fa-sign-out fa-2x" aria-hidden="true"></i></th>
+                      <td> {this.props.reservation.cikis} </td>
+                    </tr>
+                    <tr>
+                      <th> <i className="fa fa-money fa-2x" aria-hidden="true"></i> </th>
+                      <td> {this.props.reservation.ucret} TL </td>
+                    </tr>
+                    <tr>
+                      <th> Parası Çekildimi? </th>
+                      <td> {this.props.reservation.odemeBilgisi}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
                </div>
             </div>
 

@@ -3,7 +3,8 @@ import SingleRoom from './singleRoom';
 import {getCurrentDate} from './currentDate';
 import RezDate from './rezDate';
 import SingleReservation from './singleReservation';
-import { Rooms, Reservations } from '../../../imports/api/rooms.js';
+import { Rooms, Reservations } from '../../../imports/api/rooms';
+import GelecekRez from './gelecekRez';
 
 export default class ShowRooms extends React.Component {
     constructor(props) {
@@ -16,7 +17,10 @@ export default class ShowRooms extends React.Component {
     }
 
     loadData(){
+
       return  Rooms.find();
+
+
     }
 
 
@@ -29,17 +33,26 @@ export default class ShowRooms extends React.Component {
     }
 
     onRezDateChange(date){
-
       this.setState({
         startDate : date
       });
-
     }
 
     render() {
 
+      /*
+        oda ismi bulunacak örneğin : 301 bununla rezervasyonlar tablosuna gidilecek ve tarih belirtilecek. Bu tarih ve odaya
+        göre rezervasyon var ise renk yeliş yok ise renk gri olacak.
+      */
         var rooms = this.loadData().map(room => {
-           return <SingleRoom room={room} key={room._id} showCust={this.showCustomers.bind(this)} />;
+
+          var renk="gri";
+          var roomNumber =Rooms.findOne({_id : room._id});
+          var rezCount = Reservations.find({oda : roomNumber.Name, giris : this.state.startDate }).count();
+          if (rezCount >0) {
+            renk="yesil";
+          }
+           return <SingleRoom room={room} key={room._id} showCust={this.showCustomers.bind(this)} renk={renk} />;
         });
 
         var customers = this.state.reservations.map(reservation=>{
@@ -48,16 +61,25 @@ export default class ShowRooms extends React.Component {
 
         return (
            <div>
-            <h1> ODALAR</h1>
+             <div className="col-md-9">
+              <h1> ODALAR</h1>
 
+              <div className="row">
+                <div className="=form-group rezDate">
+                  <RezDate onDateChange={this.onRezDateChange.bind(this)}/>
+                </div>
+              </div>
 
-            <RezDate onDateChange={this.onRezDateChange.bind(this)}/>
-            <div className="row odalar" >
-              {rooms}
+              <div className="row odalar" >
+                {rooms}
+              </div>
+              <div className="row musteriler">
+                {customers}
+              </div>
             </div>
-            <div className="row musteriler">
-              {customers}
-            </div>
+
+            <GelecekRez />
+
           </div>
       )
 

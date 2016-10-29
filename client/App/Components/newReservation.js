@@ -1,22 +1,28 @@
 import  React, {Component} from 'react';
+import {getCurrentDate} from './currentDate';
+import RezDate from './rezDate';
+import { Rooms, Reservations } from '../../../imports/api/rooms';
+
 export  default class NewReservation extends Component {
   constructor(props) {
       super(props);
 
       this.state = {
-        giris : '28.10.2016',
-        cikis : '29.10.2017'
+        giris : getCurrentDate(),
+        cikis : getCurrentDate()
       };
   }
 
     addNote(event) {
         event.preventDefault();
-        var reservation ={
+        var reservation = {
            isim : this.refs.isim.value,
            oda : this.refs.oda.value,
-           giris : this.refs.giris.value,
-           cikis : this.refs.cikis.value,
-           ucret : this.refs.ucret.value.trim()
+           giris : this.state.giris,
+           cikis : this.state.cikis,
+           ucret : this.refs.ucret.value.trim(),
+           status : 'A',
+           odemeBilgisi : 'Hayır'
         };
 
         Meteor.call("newReservation", reservation);
@@ -25,6 +31,22 @@ export  default class NewReservation extends Component {
 
         this.refs.oda.value="";
         this.refs.ucret.value ="";
+    }
+
+    onRezDateChangeGiris(date){
+
+      this.setState({
+        giris : date
+      });
+
+    }
+
+    onRezDateChangeCikis(date){
+
+      this.setState({
+        cikis : date
+      });
+
     }
 
     render() {
@@ -56,11 +78,10 @@ export  default class NewReservation extends Component {
                 </div>
                 <br />
 
-
                 <div className="row">
                     <div className="=form-group">
                         <div className="col-md-6">
-                            <input type="date" className="form-control" placeholder="GİRİŞ TARİHİ" ref="giris"/>
+                            <RezDate onDateChange={this.onRezDateChangeGiris.bind(this)}/>
                         </div>
                     </div>
                 </div>
@@ -69,7 +90,7 @@ export  default class NewReservation extends Component {
                 <div className="row">
                     <div className="=form-group">
                         <div className="col-md-6">
-                            <input type="date" className="form-control" placeholder="ÇIKIŞ TARİHİ" ref="cikis"/>
+                            <RezDate onDateChange={this.onRezDateChangeCikis.bind(this)}/>
                         </div>
                     </div>
                 </div>

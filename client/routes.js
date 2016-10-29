@@ -4,6 +4,7 @@ import {mount} from 'react-mounter';
 import {MainLayout} from './layouts/MainLayout';
 import App from './App/App';
 import NewReservation from './App/Components/newReservation';
+import ManageGelirGider from './App/Components/manageGelirGider';
 
 FlowRouter.route('/', {
     action(){
@@ -21,8 +22,10 @@ FlowRouter.route('/new-reservation', {
     }
 });
 
-
-FlowRouter.subscriptions = function() {
-  this.register('myCourses', Meteor.subscribe('getRooms'));
-  this.register('myCourses', Meteor.subscribe('getReservations'));
-};
+FlowRouter.route('/gelir-gider', {
+    action(){
+        mount(MainLayout, {
+            content: (<ManageGelirGider />)
+        })
+    }
+});
