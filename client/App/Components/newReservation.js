@@ -22,7 +22,8 @@ export  default class NewReservation extends Component {
            cikis : this.state.cikis,
            ucret : this.refs.ucret.value.trim(),
            status : 'A',
-           odemeBilgisi : 'Hayır'
+           odemeBilgisi : 'Hayır',
+           kahvalti : this.refs.kahvalti.value
         };
 
         Meteor.call("newReservation", reservation);
@@ -106,6 +107,19 @@ export  default class NewReservation extends Component {
                     </div>
                 </div>
                 <br />
+
+                <div className="row">
+                    <div className="=form-group">
+                      <div className="col-md-6">
+                         <select className="form-control" ref="kahvalti">
+                           <option>Kahvaltı Var</option>
+                           <option>Kahvaltı Yok</option>
+                         </select>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
 
                 <div className="row">
                     <div className="=form-group">
