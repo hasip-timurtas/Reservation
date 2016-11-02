@@ -1,8 +1,11 @@
 {
-  "name": "otel_otomasyon",
+  "name": "reservation",
+  "version": "1.0.0",
   "private": true,
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "meteor run"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "meteor-node-stubs": "~0.2.0",
@@ -10,5 +13,7 @@
     "react-addons-pure-render-mixin": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-mounter": "^1.2.0"
-  }
+  },
+  "author": "",
+  "license": "ISC"
 }

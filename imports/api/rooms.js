@@ -7,6 +7,16 @@ export const GelirGider = new Mongo.Collection("gelirgider");
 
 
 if (Meteor.isServer) {
+
+  if (Rooms.find({}).count() < 1){  // Odalar yoksa kayıt yap.
+    Rooms.insert({Name : '301',Full:'N'});
+    Rooms.insert({Name : '302',Full:'N'});
+    Rooms.insert({Name : '303',Full:'N'});
+    Rooms.insert({Name : '304',Full:'N'});
+    Rooms.insert({Name : '305',Full:'N'});
+    Rooms.insert({Name : '306',Full:'N'});
+    Rooms.insert({Name : '307',Full:'N'});
+  }
   // This code only runs on the server
   Meteor.publish('getRooms', function roomPublication() {
     if(this.userId ==null) return;
