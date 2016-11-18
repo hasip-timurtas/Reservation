@@ -1,31 +1,31 @@
-import React from 'react';
+import React from 'react'
 
 export default class RezDate extends React.Component {
-  constructor(props) {
-      super(props);
+	constructor(props) {
+		super(props)
 
-      this.state = {
-        startDate : this.props.date
-      }
-  }
+		this.state = {
+			startDate : this.props.date
+		}
+	}
 
 
-    onDateChange(event) {
+	onDateChange(event) {
 
-      this.setState({
-        startDate : event.target.value
-      });
+		this.setState({
+			startDate : event.target.value
+		})
 
-        this.props.onDateChange(event.target.value);
-    }
+		this.props.onDateChange(event.target.value)
+	}
 
-    render() {
-        return (
+	render() {
+		return (
             <div>
               <input type="date" className="form-control" placeholder="TARİH" value={this.state.startDate} onChange={this.onDateChange.bind(this)}/>
             </div>
 
 
-        )
-    }
+		)
+	}
 }

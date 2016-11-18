@@ -1,43 +1,43 @@
-import  React, {Component} from 'react';
-import {getCurrentDate} from './currentDate';
-import RezDate from './rezDate';
+import  React, {Component} from 'react'
+import RezDate from '../rezDate'
+import moment from 'moment'
 
 export  default class NewGelirGider extends Component {
-  constructor(props) {
-      super(props);
+	constructor(props) {
+		super(props)
 
-      this.state = {
-        tarih : getCurrentDate()
-      };
-  }
+		this.state = {
+			tarih : moment().format('YYYY-MM-DD')
+		}
+	}
 
-    addGelirGider(event) {
-        event.preventDefault();
-        var gelirGider = {
-           aciklama : this.refs.aciklama.value,
-           tipi : this.refs.tipi.value,
-           tarih : this.state.tarih,
-           ucret : this.refs.ucret.value.trim()
-        };
+	addGelirGider(event) {
+		event.preventDefault()
+		var gelirGider = {
+			aciklama : this.refs.aciklama.value,
+			tipi : this.refs.tipi.value,
+			tarih : this.state.tarih,
+			ucret : this.refs.ucret.value.trim()
+		}
 
-        Meteor.call("newGelirGider", gelirGider);
+		Meteor.call('newGelirGider', gelirGider)
 
-        console.log(gelirGider);
+		console.log(gelirGider)
 
-        this.refs.aciklama.value="";
-        this.refs.ucret.value ="";
-    }
+		this.refs.aciklama.value=''
+		this.refs.ucret.value =''
+	}
 
-    onRezDateChangeTarih(date){
+	onRezDateChangeTarih(date){
 
-      this.setState({
-        tarih : date
-      });
+		this.setState({
+			tarih : date
+		})
 
-    }
+	}
 
-    render() {
-        return (
+	render() {
+		return (
             <form className="new-note" onSubmit={this.addGelirGider.bind(this)}>
             <div className="list-group">
               <a href="#" className="list-group-item disabled"><strong>Yeni Kayıt</strong> </a>
@@ -90,7 +90,7 @@ export  default class NewGelirGider extends Component {
                     </div>
                 </div>
             </form>
-        )
+		)
 
-    }
+	}
 }

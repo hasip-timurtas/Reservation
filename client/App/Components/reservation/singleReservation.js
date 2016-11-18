@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
 export default class SingleReservation extends React.Component {
-    sendReservationId() {
-      console.log("müşteri bilgisi");
-    }
+	sendReservationId() {
+		console.log('müşteri bilgisi')
+	}
 
-    render() {
-        return (
+	render() {
+		return (
             <div  onClick={this.sendReservationId.bind(this)}>
 
               <div className="musteri">
@@ -39,6 +39,6 @@ export default class SingleReservation extends React.Component {
             </div>
 
 
-        )
-    }
+		)
+	}
 }

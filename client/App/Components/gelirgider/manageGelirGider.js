@@ -1,26 +1,25 @@
-import React from 'react';
-import { GelirGider } from '../../../imports/api/rooms';
-import SingleGelRez from './singleGelRez';
-import NewGelirGider from './newGelirGider';
-import {getCurrentDate} from './currentDate';
-import RezDate from './rezDate';
-import ShowGelirGider from './showGelirGider';
-import CalculateGelirGider from './calculateGelirGider';
+import React from 'react'
+import { GelirGider } from '../../../../imports/api/rooms'
+import NewGelirGider from './newGelirGider'
+import RezDate from '../rezDate'
+import ShowGelirGider from './showGelirGider'
+import CalculateGelirGider from './calculateGelirGider'
+import moment from 'moment'
 
-import { createContainer } from 'meteor/react-meteor-data';
+import { createContainer } from 'meteor/react-meteor-data'
 
 export class ManageGelirGider extends React.Component {
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props)
 
-        this.state = {
-          ggDate : getCurrentDate(),
-          topGelir : 0,
-          topGider : 0
-        };
-    }
+		this.state = {
+			ggDate : moment().format('YYYY-MM-DD'),
+			topGelir : 0,
+			topGider : 0
+		}
+	}
 
-    componentDidMount(){
+	componentDidMount(){
     /*  top gelir =
       var gelir =  GelirGider.find({tarih:this.state.ggDate});
 
@@ -31,22 +30,22 @@ export class ManageGelirGider extends React.Component {
       console.log(top);*/
 
       //GelirGider.find({tarih:this.state.ggDate});
-    }
+	}
 
 
 
 
-    onRezDateChange(date){
-      this.setState({
-        ggDate : date
-      });
-    }
+	onRezDateChange(date){
+		this.setState({
+			ggDate : date
+		})
+	}
 
-    render() {
+	render() {
 
 
 
-        return (
+		return (
           <div className="container">
             <div className="row">
               <div className="=form-group rezDate">
@@ -64,15 +63,15 @@ export class ManageGelirGider extends React.Component {
             </div>
           </div>
 
-        )
-    }
+		)
+	}
 }
 
 export default createContainer(() => {
 
-  Meteor.subscribe('getGelirGider');
+	Meteor.subscribe('getGelirGider')
 
-  return {
-    gelirGiders: GelirGider.find({}).fetch()
-  };
-}, ManageGelirGider);
+	return {
+		gelirGiders: GelirGider.find({}).fetch()
+	}
+}, ManageGelirGider)

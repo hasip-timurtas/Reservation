@@ -1,57 +1,57 @@
-import  React, {Component} from 'react';
-import {getCurrentDate} from './currentDate';
-import RezDate from './rezDate';
-import { Rooms, Reservations } from '../../../imports/api/rooms';
+import  React, {Component} from 'react'
+import RezDate from '../rezDate'
+import { Rooms, Reservations } from '../../../../imports/api/rooms'
+import moment from 'moment'
 
 export  default class NewReservation extends Component {
-  constructor(props) {
-      super(props);
+	constructor(props) {
+		super(props)
 
-      this.state = {
-        giris : getCurrentDate(),
-        cikis : getCurrentDate()
-      };
-  }
+		this.state = {
+			giris : moment().format('YYYY-MM-DD'),
+			cikis : moment().add(1,'day').format('YYYY-MM-DD')
+		}
+	}
 
-    addNote(event) {
-        event.preventDefault();
-        var reservation = {
-           isim : this.refs.isim.value,
-           oda : this.refs.oda.value,
-           giris : this.state.giris,
-           cikis : this.state.cikis,
-           ucret : this.refs.ucret.value.trim(),
-           status : 'A',
-           odemeBilgisi : 'Hayır',
-           kahvalti : this.refs.kahvalti.value
-        };
+	addNote(event) {
+		event.preventDefault()
+		var reservation = {
+			isim : this.refs.isim.value,
+			oda : this.refs.oda.value,
+			giris : this.state.giris,
+			cikis : this.state.cikis,
+			ucret : this.refs.ucret.value.trim(),
+			status : 'A',
+			odemeBilgisi : 'Hayır',
+			kahvalti : this.refs.kahvalti.value
+		}
 
-        Meteor.call("newReservation", reservation);
+		Meteor.call('newReservation', reservation)
 
-        console.log(reservation);
+		console.log(reservation)
 
-        this.refs.oda.value="";
-        this.refs.ucret.value ="";
-    }
+		this.refs.oda.value=''
+		this.refs.ucret.value =''
+	}
 
-    onRezDateChangeGiris(date){
+	onRezDateChangeGiris(date){
 
-      this.setState({
-        giris : date
-      });
+		this.setState({
+			giris : date
+		})
 
-    }
+	}
 
-    onRezDateChangeCikis(date){
+	onRezDateChangeCikis(date){
 
-      this.setState({
-        cikis : date
-      });
+		this.setState({
+			cikis : date
+		})
 
-    }
+	}
 
-    render() {
-        return (
+	render() {
+		return (
             <form className="new-note" onSubmit={this.addNote.bind(this)}>
                 <div className="row">
                     <div className="=form-group">
@@ -129,7 +129,7 @@ export  default class NewReservation extends Component {
                     </div>
                 </div>
             </form>
-        )
+		)
 
-    }
+	}
 }

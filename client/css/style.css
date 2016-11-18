@@ -73,3 +73,12 @@ width:300px;
 .color-blue{
   color:blue;
 }
+
+
+.gelirgider-table .remove-room{
+  cursor:pointer;
+}
+
+.room-id{
+  width:100px;
+}

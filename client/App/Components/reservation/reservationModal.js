@@ -1,50 +1,50 @@
-import React from 'react';
-import { Reservations } from '../../../imports/api/rooms';
-import RezDate from './rezDate';
+import React from 'react'
+import { Reservations } from '../../../../imports/api/rooms'
+import RezDate from '../rezDate'
 
 export default class ReservationModal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          res : this.props.res
-        };
+	constructor(props) {
+		super(props)
+		this.state = {
+			res : this.props.res
+		}
 
-    }
+	}
 
-    updateReservation(){
-      console.log(this.props.res);
-    }
+	updateReservation(){
+		console.log(this.props.res)
+	}
 
-    onRezDateChangeGiris(date){
+	onRezDateChangeGiris(date){
 
-      this.setState({
-        giris : date
-      });
+		this.setState({
+			giris : date
+		})
 
-    }
+	}
 
-    onRezDateChangeCikis(date){
+	onRezDateChangeCikis(date){
 
-      this.setState({
-        cikis : date
-      });
+		this.setState({
+			cikis : date
+		})
 
-    }
+	}
 
-    componentWillMount(){
-      console.log("didamount");
-      this.setState({
-        res : this.props.res
-      });
-    }
+	componentWillMount(){
+		console.log('didamount')
+		this.setState({
+			res : this.props.res
+		})
+	}
 
-    render() {
-      console.log(this.props.res);
-        if (!this.props.res) {
-          return null;
-        }
+	render() {
+		console.log(this.props.res)
+		if (!this.props.res) {
+			return null
+		}
 
-        return (
+		return (
           <div className="modal fade" id="myModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
@@ -139,6 +139,6 @@ export default class ReservationModal extends React.Component {
               </div>
             </div>
           </div>
-        )
-    }
+		)
+	}
 }
