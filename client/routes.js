@@ -6,6 +6,7 @@ import App from './App/App'
 import NewReservation from './App/Components/reservation/newReservation'
 import ManageGelirGider from './App/Components/gelirgider/manageGelirGider'
 import ManageRooms from './App/Components/room/manageRooms'
+import RoomStatus from './App/Components/home/roomStatus'
 
 FlowRouter.route('/', {
 	action(){
@@ -35,6 +36,14 @@ FlowRouter.route('/rooms', {
 	action(){
 		mount(MainLayout, {
 			content: (<ManageRooms />)
+		})
+	}
+})
+
+FlowRouter.route('/room-status', {
+	action(){
+		mount(MainLayout, {
+			content: (<RoomStatus />)
 		})
 	}
 })

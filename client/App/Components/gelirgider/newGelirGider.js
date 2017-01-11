@@ -47,8 +47,8 @@ export  default class NewGelirGider extends Component {
                 <div className="=form-group">
                   <div className="col-md-6">
                      <select className="form-control" ref="tipi">
-                       <option>gelir</option>
-                       <option>gider</option>
+                       <option>Gider</option>
+                       <option>Gelir</option>
                      </select>
                     </div>
                 </div>
@@ -67,16 +67,16 @@ export  default class NewGelirGider extends Component {
                 <div className="row">
                     <div className="=form-group">
                         <div className="col-md-6">
-                            <RezDate onDateChange={this.onRezDateChangeTarih.bind(this)}/>
+                            <input type="number" className="form-control" min="0" max="10000" step="1" ref="ucret" placeholder="ÜCRET"  />
                         </div>
                     </div>
                 </div>
                 <br />
 
-                <div className="row">
+								<div className="row">
                     <div className="=form-group">
                         <div className="col-md-6">
-                            <input type="number" className="form-control" min="0" max="10000" step="1" ref="ucret" placeholder="ÜCRET"  />
+                            <RezDate onDateChange={this.onRezDateChangeTarih.bind(this)} label="Tarih" date={this.state.tarih}/>
                         </div>
                     </div>
                 </div>

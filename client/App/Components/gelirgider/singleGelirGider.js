@@ -8,6 +8,7 @@ export default class SingleGelirGider extends React.Component {
             <td>{this.props.sgg.aciklama}</td>
             <td>{this.props.sgg.ucret} TL </td>
             <td>{this.props.sgg.tipi}</td>
+						<td>{this.props.sgg.tipi}</td>
           </tr>
 		)
 	}

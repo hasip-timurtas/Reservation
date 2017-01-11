@@ -55,7 +55,7 @@ width:300px;
 }
 
 .rezDate{
-  width: 200px;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
 }
@@ -81,4 +81,13 @@ width:300px;
 
 .room-id{
   width:100px;
+}
+
+
+.room-status table th {
+  border : 2px black solid;
+}
+
+.room-status table td {
+  border : 1px black solid;
 }

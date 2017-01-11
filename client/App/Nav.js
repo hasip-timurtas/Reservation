@@ -1,9 +1,9 @@
-import React,{Component} from 'react';
-import AccountsUI from './AccountsUI';
+import React,{Component} from 'react'
+import AccountsUI from './AccountsUI'
 
 export default class Nav extends Component{
-    render(){
-        return(
+	render(){
+		return(
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
@@ -20,6 +20,7 @@ export default class Nav extends Component{
                         <ul className="nav navbar-nav">
                           <li><a href="/new-reservation">Yeni Rezervasyon</a></li>
                           <li><a href="/gelir-gider">Gelir Giderler</a></li>
+                          <li><a href="/room-status"> Oda Durumları</a></li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">
                           <li><a href="#"> <AccountsUI /> </a></li>
@@ -28,6 +29,6 @@ export default class Nav extends Component{
                 </div>
             </nav>
 
-        )
-    }
+		)
+	}
 }

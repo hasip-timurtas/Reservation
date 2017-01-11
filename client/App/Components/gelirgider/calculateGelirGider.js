@@ -1,5 +1,6 @@
 import React from 'react'
 import { GelirGider } from '../../../../imports/api/rooms'
+import moment from 'moment'
 
 export default class CalculateGelirGider extends React.Component {
 	constructor(props) {
@@ -14,8 +15,12 @@ export default class CalculateGelirGider extends React.Component {
 	calculateGelir(){
 
 		var total = 0
+		var date ={
+			$gte: moment(this.props.fisrtDate).toDate(),
+			$lt: moment(this.props.secondDate).add(1,'day').toDate()
+		}
 
-		GelirGider.find({tarih:this.props.ggDate, tipi:'gelir'}).map(function(doc) {
+		GelirGider.find({ tarih: date, tipi:'Gelir'}).map(function(doc) {
 			total += parseFloat(doc.ucret)
 		})
 
@@ -24,8 +29,12 @@ export default class CalculateGelirGider extends React.Component {
 
 	calculateGider(){
 		var total = 0
+		var date ={
+			$gte: moment(this.props.fisrtDate).toDate(),
+			$lt: moment(this.props.secondDate).add(1,'day').toDate()
+		}
 
-		GelirGider.find({tarih:this.props.ggDate, tipi:'gider'}).map(function(doc) {
+		GelirGider.find({tarih: date , tipi:'Gider'}).map(function(doc) {
 			total += parseFloat(doc.ucret)
 		})
 
@@ -33,11 +42,9 @@ export default class CalculateGelirGider extends React.Component {
 	}
 
 	render() {
-
 		var gelir = this.calculateGelir()
 		var gider = this.calculateGider()
 		var top = gelir-gider
-
 		return (
           <div>
             <h3>Gelir : {gelir} TL</h3>

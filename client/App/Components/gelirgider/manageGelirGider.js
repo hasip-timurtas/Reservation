@@ -13,56 +13,47 @@ export class ManageGelirGider extends React.Component {
 		super(props)
 
 		this.state = {
-			ggDate : moment().format('YYYY-MM-DD'),
+			firstDate : moment().format('YYYY-MM-DD'),
+			secondDate : moment().format('YYYY-MM-DD'),
 			topGelir : 0,
 			topGider : 0
 		}
 	}
 
-	componentDidMount(){
-    /*  top gelir =
-      var gelir =  GelirGider.find({tarih:this.state.ggDate});
 
-      gelir.map(gel=>{
-
-      })
-
-      console.log(top);*/
-
-      //GelirGider.find({tarih:this.state.ggDate});
+	firstDateChange(date){
+		this.setState({
+			firstDate : date
+		})
 	}
 
-
-
-
-	onRezDateChange(date){
+	secondDateChange(date){
 		this.setState({
-			ggDate : date
+			secondDate : date
 		})
 	}
 
 	render() {
-
-
-
 		return (
           <div className="container">
             <div className="row">
-              <div className="=form-group rezDate">
-                <RezDate onDateChange={this.onRezDateChange.bind(this)} date={this.state.ggDate}/>
-              </div>
-            </div>
-            <div className="row">
               <div className="col-md-9">
-                <ShowGelirGider ggDate={this.state.ggDate} />
+								<div className="row">
+									<div className="col-md-6">
+										<RezDate onDateChange={this.firstDateChange.bind(this)} label="Başlan" EnablefirstDay={true} date={this.state.firstDate}/>
+									</div>
+									<div className="col-md-6">
+										<RezDate onDateChange={this.secondDateChange.bind(this)} label="Bitiş" date={this.state.secondDate}/>
+									</div>
+		            </div>
+                <ShowGelirGider fisrtDate={this.state.firstDate} secondDate={this.state.secondDate}  />
                 <NewGelirGider />
               </div>
               <div className="col-md-3">
-                <CalculateGelirGider ggDate={this.state.ggDate} />
+                <CalculateGelirGider fisrtDate={this.state.firstDate} secondDate={this.state.secondDate} />
               </div>
             </div>
           </div>
-
 		)
 	}
 }

@@ -15,11 +15,18 @@ export  default class NewReservation extends Component {
 
 	addNote(event) {
 		event.preventDefault()
+		var cikis = null
+		if (this.refs.acik.checked) {
+			cikis = 'Açık'
+		}else {
+			cikis = this.state.cikis
+		}
+
 		var reservation = {
 			isim : this.refs.isim.value,
 			oda : this.refs.oda.value,
 			giris : this.state.giris,
-			cikis : this.state.cikis,
+			cikis : cikis,
 			ucret : this.refs.ucret.value.trim(),
 			status : 'A',
 			odemeBilgisi : 'Hayır',
@@ -62,7 +69,7 @@ export  default class NewReservation extends Component {
                            <option>303</option>
                            <option>304</option>
                            <option>305</option>
-                           <option >306</option>
+                           <option>306</option>
                            <option>307</option>
                          </select>
                         </div>
@@ -82,26 +89,6 @@ export  default class NewReservation extends Component {
                 <div className="row">
                     <div className="=form-group">
                         <div className="col-md-6">
-                            <RezDate onDateChange={this.onRezDateChangeGiris.bind(this)} date={this.state.giris}/>
-                        </div>
-                    </div>
-                </div>
-                <br />
-
-                <div className="row">
-                    <div className="=form-group">
-                        <div className="col-md-6">
-                            <RezDate onDateChange={this.onRezDateChangeCikis.bind(this)} date={this.state.cikis}/>
-                        </div>
-                    </div>
-                </div>
-                <br />
-
-
-
-                <div className="row">
-                    <div className="=form-group">
-                        <div className="col-md-6">
                             <input type="number" className="form-control" min="0" max="10000" step="1" ref="ucret" placeholder="ÜCRET"  />
                         </div>
                     </div>
@@ -112,14 +99,32 @@ export  default class NewReservation extends Component {
                     <div className="=form-group">
                       <div className="col-md-6">
                          <select className="form-control" ref="kahvalti">
-                           <option>Kahvaltı Var</option>
-                           <option>Kahvaltı Yok</option>
+												 	<option>Kahvaltı Yok</option>
+												 	<option>Kahvaltı Var</option>
                          </select>
                         </div>
                     </div>
                 </div>
                 <br />
 
+								<div className="row">
+										<div className="=form-group">
+												<div className="col-md-6">
+														<RezDate onDateChange={this.onRezDateChangeGiris.bind(this)} label="Giriş" date={this.state.giris}/>
+												</div>
+										</div>
+								</div>
+								<br />
+
+								<div className="row">
+										<div className="=form-group">
+												<div className="col-md-6">
+														<RezDate onDateChange={this.onRezDateChangeCikis.bind(this)} label="Çıkış" date={this.state.cikis}/>
+												</div>
+												<div className="col-md-1">	<input type="checkbox" ref="acik" />Açık </div>
+										</div>
+								</div>
+								<br />
 
                 <div className="row">
                     <div className="=form-group">
@@ -130,6 +135,5 @@ export  default class NewReservation extends Component {
                 </div>
             </form>
 		)
-
 	}
 }

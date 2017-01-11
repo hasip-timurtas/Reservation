@@ -63,7 +63,7 @@ export default class ShowRooms extends React.Component {
 
               <div className="row">
                 <div className="=form-group rezDate">
-                  <RezDate onDateChange={this.onRezDateChange.bind(this)} date={this.state.startDate}/>
+                  <RezDate onDateChange={this.onRezDateChange.bind(this)} date={this.state.startDate} label="Tarih"/>
                 </div>
               </div>
               <div className="row odalar" >

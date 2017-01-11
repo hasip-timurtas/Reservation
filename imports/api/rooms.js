@@ -1,9 +1,29 @@
 import { Meteor } from 'meteor/meteor'
 import { Mongo } from 'meteor/mongo'
+import { SimpleSchema } from 'meteor/aldeed:simple-schema'
 
 export const Rooms = new Mongo.Collection('rooms')
 export const Reservations = new Mongo.Collection('reservations')
 export const GelirGider = new Mongo.Collection('gelirgider')
+
+
+GelirGider.Schema = new SimpleSchema({
+	aciklama :{
+		type : String
+	},
+	tipi:{
+		type: String
+	},
+	tarih: {
+		type: Date
+	},
+	ucret :{
+		type: Number,
+		decimal:true
+	}
+})
+
+GelirGider.attachSchema(GelirGider.Schema)
 
 
 if (Meteor.isServer) {
